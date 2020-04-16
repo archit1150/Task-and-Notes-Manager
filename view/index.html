@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task and Notes Manager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script async defer src="script.js"></script>
+</head>
+<body>'
+    <div class="wrap">
+    <div class="heading">
+        <p class="h2">Task and Notes Manager</p>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <span class = "required">*</span>
+          <label for="Title" class="d01">Title</label>
+          <input type="text" class="form-control" id="task">
+        </div>
+        <div class="form-group col-md-6">
+            <span class = "required">*</span>
+          <label for="Due Date" class="d02">Due Date</label>
+          <input type="text" class="form-control" id="due" placeholder="YYYY-MM-DD">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Description">Description</label>
+        <input type="text" class="form-control" id="description">
+      </div>
+    <div class="priority">
+        <label for="priority">Priority</label><br>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="Priority" id="myRadio" value="high">
+        <label class="form-check-label" for="high">high</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="Priority" id="myRadio" value="medium">
+        <label class="form-check-label" for="medium">medium</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="Priority" id="myRadio" value="low">
+        <label class="form-check-label" for="low">low</label>
+      </div>
+    </div>
+    <div class="button">
+        <button type="button" class="btn btn-primary" id='submit'>Add</button>
+        <button type="button" class="btn btn-light" class="open-button" id='update'>update</button>
+        <span class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle"  id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Preference
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button" id='date_assen'>Due Date(Assending)</button>
+              <button class="dropdown-item" type="button" id='date_desen'>Due Date(Desending)</button>
+              <button class="dropdown-item" type="button" id='priority'>Priority</button>
+              <button class="dropdown-item" type="button" id='taskdone'>Task Done</button>
+            </div>
+        </span>
+    </div>
+    <div class="table">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Task Done</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="col" id='col1'></td>
+            <td scope="col" id='col2'></td>
+            <td scope="col" id='col3'></td>
+            <td scope="col" id='col4'></td>
+            <td scope="col" id='col5'></td>
+            <td scope="col" id='col6'></td>
+            <td scope="col" id='col7'></td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+<div class="form-popup" id="myForm">
+  <div class="form-container">
+    <h1>Update Task</h1>
+    <label for="id"><b>Task id</b></label>
+    <input type="text" placeholder="Integer Value" name="id" id='id1' >
+
+    <label for="due"><b>Due Date</b></label>
+    <input type="text" placeholder="YYYY-MM-DD" name="duedate" id='udate'>
+
+    <label for="priority"><b>Priority</b></label><br>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="UPriority" id="myRadio1" value="high">
+      <label class="form-check-label" for="high">high</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="UPriority" id="myRadio1" value="medium" checked="checked">
+      <label class="form-check-label" for="medium">medium</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="UPriority" id="myRadio1" value="low">
+      <label class="form-check-label" for="low">low</label>
+    </div>
+
+    <div>
+      <label for="task"><b>Task Done</b></label><br>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="Utask" id="myRadio2" value="complete">
+        <label class="form-check-label" for="medium">complete</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="Utask" id="myRadio2" value="incomplete"checked="checked">
+        <label class="form-check-label" for="low">incomplete</label>
+      </div>
+    </div>
+     
+
+    <button type="submit" class="btn" id='udata'>Update</button>
+    <button type="button" class="btn cancel" id='cancel'>Close</button>
+  </div>
+</div>
+       
+</body>
+</html>
