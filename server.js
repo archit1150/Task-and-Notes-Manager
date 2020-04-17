@@ -8,13 +8,13 @@ const app = express()
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.use('/', express.static(__dirname + '/Views'))
+app.use('/', express.static(__dirname + '/view'))
 
 app.use('/todos', todoRoute)
 
 db.sync()
   .then(() => {
-    app.listen(process.env.PORT || 98416)
+    app.listen(process.env.PORT || 6565)
   })
   .catch((err) => {
     console.error(err)
